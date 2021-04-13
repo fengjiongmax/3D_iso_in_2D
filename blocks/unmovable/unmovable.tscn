@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://blocks/unmovable/unmovable.png" type="Texture" id=1]
+
+[node name="Sprite" type="Sprite"]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
