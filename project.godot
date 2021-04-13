@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Sprite",
+"class": "BlockBase",
+"language": "GDScript",
+"path": "res://blocks/block_base.gd"
+} ]
+_global_script_class_icons={
+"BlockBase": ""
+}
+
 [application]
 
 config/name="3D iso 2D"
@@ -17,6 +27,10 @@ config/icon="res://icon.png"
 [autoload]
 
 Grid="*res://grid.gd"
+
+[physics]
+
+common/enable_pause_aware_picking=true
 
 [rendering]
 

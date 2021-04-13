@@ -1,7 +1,7 @@
 extends Node2D
 
-const movable = "res://blocks/movable/movable.tscn"
-const unmovable = "res://blocks/unmovable/unmovable.tscn"
+const movable = preload("res://blocks/movable/movable.tscn")
+const unmovable = preload("res://blocks/unmovable/unmovable.tscn")
 
 onready var grid_texture = load("res://floor_tile/grid.png")
 
@@ -11,24 +11,20 @@ func _ready():
 		for z in range(6):
 			$floor_tile.set_cell(x,z,0)
 		pass
-	
+	# you can add blocks however you want ,but might got something weird.
+	new_movable(0,1,0)
 	new_movable(0,0,0)
-	new_movable(0,0,1)
-	new_movable(1,0,0)
-	new_movable(1,0,1)
 	new_unmovable(3,0,3)
 	pass
 
 func new_movable(x,y,z):
-	var _m = load(movable).instance()
+	var _m = movable.instance()
 	$movable.add_child(_m)
-	var _engine_pos = Grid.game_to_engine(x,y,z)
-	_m.position = _engine_pos
+	_m.set_game_pos(x,y,z)
 	pass
 
 func new_unmovable(x,y,z):
-	var _u = load(unmovable).instance()
+	var _u = unmovable.instance()
 	$unmovable.add_child(_u)
-	var _engine_pos = Grid.game_to_engine(x,y,z)
-	_u.position = _engine_pos
+	_u.set_game_pos(x,y,z)
 	pass
