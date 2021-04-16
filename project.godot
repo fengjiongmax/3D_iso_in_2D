@@ -13,9 +13,45 @@ _global_script_classes=[ {
 "class": "BlockBase",
 "language": "GDScript",
 "path": "res://blocks/block_base.gd"
+}, {
+"base": "Reference",
+"class": "GridUtils",
+"language": "GDScript",
+"path": "res://helpers/grid_utils.gd"
+}, {
+"base": "Reference",
+"class": "Math",
+"language": "GDScript",
+"path": "res://helpers/math.gd"
+}, {
+"base": "BlockBase",
+"class": "Movable",
+"language": "GDScript",
+"path": "res://blocks/movable/movable.gd"
+}, {
+"base": "Node",
+"class": "StateBase",
+"language": "GDScript",
+"path": "res://blocks/movable/states/state_base.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://blocks/movable/states/state_machine.gd"
+}, {
+"base": "BlockBase",
+"class": "Unmovable",
+"language": "GDScript",
+"path": "res://blocks/unmovable/unmovable.gd"
 } ]
 _global_script_class_icons={
-"BlockBase": ""
+"BlockBase": "",
+"GridUtils": "",
+"Math": "",
+"Movable": "",
+"StateBase": "",
+"StateMachine": "",
+"Unmovable": ""
 }
 
 [application]
@@ -27,6 +63,29 @@ config/icon="res://icon.png"
 [autoload]
 
 Grid="*res://grid.gd"
+
+[input]
+
+movable_forward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+movable_back={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
+ ]
+}
+movable_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+movable_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [physics]
 
