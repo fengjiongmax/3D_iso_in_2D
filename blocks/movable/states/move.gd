@@ -25,7 +25,10 @@ func _update(_delta:float) -> void:
 	else:
 		movable.position = target_engine_pos
 		movable.z_index = target_z
-		set_next_target()
+		if Grid.get_game_axisv(movable.game_pos + Vector3.DOWN) == null:
+			_state_machine.switch_state("fall",{"direction":direction})
+		else:
+			set_next_target()
 
 func set_next_target():
 	target_game_pos = movable.game_pos + direction
@@ -41,5 +44,9 @@ func set_next_target():
 		else:
 			movable.z_index = target_z - 1
 	else:
-		_state_machine.switch_state("idle")
+		if movable.is_direction_jumpable(direction):
+			_state_machine.switch_state("jump",{"direction":direction})
+		else:
+			_state_machine.switch_state("idle")
 		pass
+

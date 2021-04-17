@@ -13,9 +13,11 @@ func _ready():
 			$floor_tile.set_cell(x,z,0)
 		pass
 	# you can add blocks however you want ,but might got something weird.
-	new_movable(0,1,0)
+#	new_movable(0,1,0)
 	new_movable(0,0,0)
-	new_unmovable(3,0,3)
+	new_unmovable(0,0,2)
+	new_unmovable(1,0,0)
+#	new_unmovable(3,0,3)
 	pass
 
 func _input(event):
