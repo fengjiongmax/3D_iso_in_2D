@@ -3,7 +3,7 @@ extends Node
 
 var game_arr = [] # a 3D array
 # let's just assume we'll have a board with the size of V3(8,8,8)
-var game_size = Vector3(8,8,8)
+var game_size = Vector3(6,6,6)
 
 func _ready():
 	set_grid_array()

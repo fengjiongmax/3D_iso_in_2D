@@ -26,6 +26,13 @@ func is_direction_jumpable(direction:Vector3) -> bool:
 	if _self_up_item != null:
 		return false
 	
+	var _self_up_up_coordinate = game_pos + Vector3.UP*2
+	if !Grid.coordinate_within_rangev(_self_up_up_coordinate):
+		return false
+	var _self_up_up_item = Grid.get_game_axisv(_self_up_up_coordinate)
+	if _self_up_up_item != null:
+		return false
+	
 	var _direction_up_axie = game_pos + direction + Vector3.UP
 	if !Grid.coordinate_within_rangev(_direction_up_axie):
 		return false

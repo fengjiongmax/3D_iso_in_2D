@@ -16,13 +16,27 @@ func _ready():
 			$floor_tile.set_cell(x,z,0)
 		pass
 	# you can add blocks however you want ,but might got something weird.
-	new_movable(0,1,0)
+	
 	new_movable(0,0,0)
-	new_movable(0,0,1)
-	new_movable(1,0,0)
-#	new_unmovable(0,0,2)
-#	new_unmovable(1,0,0)
-#	new_unmovable(3,0,3)
+	new_movable(0,2,0)
+	
+	new_unmovable(0,1,0)
+	new_unmovable(0,1,1)
+	
+	new_unmovable(0,0,3)
+	
+#	new_unmovable(1,1,0)
+#	new_unmovable(1,2,0)
+#	new_unmovable(1,3,0)
+	
+#	new_movable(0,0,0)
+#	new_movable(0,1,0)
+#	new_movable(0,0,1)
+#
+#	new_unmovable(0,1,2)
+#	new_unmovable(0,1,3)
+	
+
 	pass
 
 func _input(event):
@@ -36,6 +50,11 @@ func _input(event):
 		send_command(Vector3.RIGHT)
 
 func send_command(command:Vector3) -> void:
+	var _idle_count:int = 0
+	for i in sorted:
+		if i.get_node("state_machine").state.name == "idle":
+			_idle_count += 1
+	if _idle_count == sorted.size():
 		sorted = Grid.sort_by_direction(command)
 		for i in sorted:
 			i.receive_command({"direction":command})

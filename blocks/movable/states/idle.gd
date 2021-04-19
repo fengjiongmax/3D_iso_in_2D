@@ -16,5 +16,10 @@ func _command(_msg:Dictionary={}) -> void:
 			_state_machine.switch_state("jump",{"direction":command})
 		else:
 			print("%s not able to move" % _move_target_coordinate)
-
+	elif _msg.keys().has("reach_target"):
+		if Grid.coordinate_within_rangev(movable.game_pos + Vector3.DOWN) &&\
+		 Grid.get_game_axisv(movable.game_pos + Vector3.DOWN) == null:
+			_state_machine.switch_state("fall",{})
+			pass
+		pass
 

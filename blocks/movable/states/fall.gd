@@ -51,7 +51,7 @@ func set_next_target():
 	else:
 		if Grid.get_game_axisv(movable.game_pos + move_direction) == null:
 			_state_machine.switch_state("move",{"direction":move_direction})
-		elif movable.is_direction_jumpable(move_direction):
+		elif move_direction != Vector3.ZERO && movable.is_direction_jumpable(move_direction):
 			_state_machine.switch_state("jump",{"direction":move_direction})
 		else:
 			_state_machine.switch_state("idle")
