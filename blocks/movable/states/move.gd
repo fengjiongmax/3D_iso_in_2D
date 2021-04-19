@@ -16,6 +16,19 @@ func _enter(_msg:Dictionary={}) -> void:
 
 	set_next_target()
 
+func _command(_msg:Dictionary={}) -> void:
+	if !_msg.keys().has("reach_target"):
+		return
+	movable.engine_fit_game_pos()
+	var _self_down_axie = movable.game_pos + Vector3.DOWN
+	if Grid.coordinate_within_rangev(_self_down_axie) && Grid.get_game_axisv(_self_down_axie) == null:
+		var _down_moved = Grid.get_game_axisv(_self_down_axie + direction)
+		if !(_down_moved is Movable && _down_moved.get_node("state_machine").state.name == "move"):
+			_state_machine.switch_state("fall",{"direction":direction})
+			return
+	
+	set_next_target()
+
 func _update(_delta:float) -> void:
 	var _after_move = movable.position + engine_direction * _delta * movable.MOVESPEED
 	var _reach_target = Math.is_betweenv(movable.position,_after_move,target_engine_pos)
@@ -25,10 +38,7 @@ func _update(_delta:float) -> void:
 	else:
 		movable.position = target_engine_pos
 		movable.z_index = target_z
-		if Grid.get_game_axisv(movable.game_pos + Vector3.DOWN) == null:
-			_state_machine.switch_state("fall",{"direction":direction})
-		else:
-			set_next_target()
+		movable.reach_target()
 
 func set_next_target():
 	target_game_pos = movable.game_pos + direction

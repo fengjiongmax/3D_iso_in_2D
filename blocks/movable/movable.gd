@@ -3,6 +3,8 @@ extends BlockBase
 
 const MOVESPEED = 2
 
+signal block_reach_target
+
 func _ready():
 	add_to_group("movable")
 	pass
@@ -33,3 +35,6 @@ func is_direction_jumpable(direction:Vector3) -> bool:
 		return false
 	
 	return true
+
+func reach_target():
+	emit_signal("block_reach_target")

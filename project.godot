@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://blocks/block_base.gd"
 }, {
 "base": "Reference",
+"class": "Compare",
+"language": "GDScript",
+"path": "res://helpers/compare.gd"
+}, {
+"base": "Reference",
 "class": "GridUtils",
 "language": "GDScript",
 "path": "res://helpers/grid_utils.gd"
@@ -46,6 +51,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BlockBase": "",
+"Compare": "",
 "GridUtils": "",
 "Math": "",
 "Movable": "",

@@ -14,6 +14,12 @@ func _enter(_msg:={}) -> void:
 	move_direction = _msg["direction"]
 	set_next_target()
 
+func _command(_msg:Dictionary={}) -> void:
+	if !_msg.keys().has("reach_target"):
+		return
+	movable.engine_fit_game_pos()
+	_state_machine.switch_state("move",{"direction":move_direction})
+
 func _update(_delta:float) -> void:
 	var _after_move = movable.position + engine_direction * _delta * movable.MOVESPEED
 	var _reach_target = Math.is_betweenv(movable.position,_after_move,target_engine_pos)
@@ -22,7 +28,7 @@ func _update(_delta:float) -> void:
 		movable.position = _after_move
 	else:
 		movable.position = target_engine_pos
-		_state_machine.switch_state("move",{"direction":move_direction})
+		movable.reach_target()
 
 func set_next_target():
 	target_game_pos = movable.game_pos + Vector3.UP

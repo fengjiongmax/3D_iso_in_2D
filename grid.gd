@@ -41,3 +41,20 @@ func set_axis_obj(obj:Object, x:int, y:int, z:int) -> void:
 
 func set_axis_objv(obj:Object,pos:Vector3) -> void:
 	set_axis_obj(obj,int(pos.x),int(pos.y),int(pos.z))
+
+func sort_by_direction(direction:Vector3) -> Array:
+	var _sorted = []
+	
+	_sorted = get_tree().get_nodes_in_group("movable").duplicate()
+	match direction:
+		Vector3.FORWARD:
+			_sorted.sort_custom(Compare,"forward_compare")
+		Vector3.BACK:
+			_sorted.sort_custom(Compare,"back_compare")
+		Vector3.LEFT:
+			_sorted.sort_custom(Compare,"left_compare")
+		Vector3.RIGHT:
+			_sorted.sort_custom(Compare,"right_compare")
+	
+	return _sorted
+

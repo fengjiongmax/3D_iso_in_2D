@@ -21,7 +21,23 @@ func _update(_delta:float) -> void:
 		movable.position = _after_move
 	else:
 		movable.position = target_engine_pos
-		set_next_target()
+		movable.reach_target()
+
+func _command(_msg:Dictionary={}) -> void:
+	if !_msg.keys().has("reach_target"):
+		return
+		
+	movable.engine_fit_game_pos()
+	var _self_down_axie = movable.game_pos + Vector3.DOWN
+	var _down_moved = Grid.get_game_axisv(_self_down_axie + move_direction)
+	if _down_moved is Movable && _down_moved.get_node("state_machine").state.name == "move":
+		if move_direction == Vector3.ZERO:
+			_state_machine.switch_state("idle",{})
+			return
+		else:
+			_state_machine.switch_state("move",{"direction":move_direction})
+			return
+	set_next_target()
 
 func set_next_target():
 	target_game_pos = movable.game_pos + Vector3.DOWN
