@@ -12,10 +12,10 @@ I've also written a series of the tutorial:
 
 | Name | Link |
 |-|-|
-| Project setup and basic calculation | [Medium](https://fengjiongmax.medium.com/build-an-isometric-3d-game-in-2d-1-project-setup-and-basic-calculation-1717f42b383f)|
-| Texture render order | [Medium](https://fengjiongmax.medium.com/build-an-isometric-3d-game-in-2d-2-texture-render-order-7034f6ac1532) |
-| Make blocks move | [Medium](https://fengjiongmax.medium.com/build-an-isometric-3d-game-in-2d-3-make-blocks-move-ebf149704a55) |
-| Fall and jump | [Medium](https://fengjiongmax.medium.com/build-an-isometric-3d-game-in-2d-4-fall-and-jump-7b033692e052) |
-| More order and move sync | [Medium](https://fengjiongmax.medium.com/build-an-isometric-3d-game-in-2d-5-more-order-and-move-sync-342694415ddf) |
-| Movement adjusting | [Medium](https://fengjiongmax.medium.com/build-an-isometric-3d-game-in-2d-6-more-order-and-move-sync-344150fe7785) |
+| Project setup and basic calculation | [Link](https://www.im404.me/blog/iso3d-2d_1/)|
+| Texture render order | [Link](https://im404.me/blog/iso3d-2d_2/) |
+| Make blocks move | [Link](https://im404.me/blog/iso3d-2d_3) |
+| Fall and jump | [Link](https://im404.me/blog/iso3d-2d_4) |
+| More order and move sync | [Link](https://im404.me/blog/iso3d-2d_5) |
+| Movement adjusting | [Link](https://im404.me/blog/iso3d-2d_6) |
 
